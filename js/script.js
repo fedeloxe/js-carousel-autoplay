@@ -89,25 +89,63 @@ prev.addEventListener('click', function(){
 //decremento il suo valore di 1
 //aggiungere la class active al nuovo elemento dell'array items e la vado a rimuovere da quello precedente//stessa cosa per i cerchi
 
-setInterval(function(){
-    items[itemActive].classList.remove(`active`);
-    circles[itemActive].classList.remove(`active`);
+
+//------------------------------------------sercizio base-------------------------------------
+// setInterval(function(){
+//     items[itemActive].classList.remove(`active`);
+//     circles[itemActive].classList.remove(`active`);
 
 
    
-    if(itemActive+1 ==imagesArray.length){
+//     if(itemActive+1 ==imagesArray.length){
 
-        itemActive = 0;
+//         itemActive = 0;
 
-    }
+//     }
 
-    else{
-        itemActive++;
-    }
+//     else{
+//         itemActive++;
+//     }
 
-    items[itemActive].classList.add(`active`);
-    circles[itemActive].classList.add(`active`);
+//     items[itemActive].classList.add(`active`);
+//     circles[itemActive].classList.add(`active`);
 
 
-},1000)
+// },3000)
+
+//---------------------------------------esercizio bonus-----------------------------------------------
+
+let autoPlay
+
+document.getElementById('start').addEventListener('click', function(){
+
+
+
+    autoPlay= setInterval(function(){
+        items[itemActive].classList.remove(`active`);
+        circles[itemActive].classList.remove(`active`);
+    
+    
+       
+        if(itemActive+1 ==imagesArray.length){
+    
+            itemActive = 0;
+    
+        }
+    
+        else{
+            itemActive++;
+        }
+    
+        items[itemActive].classList.add(`active`);
+        circles[itemActive].classList.add(`active`);
+    
+    
+    },3000)
+
+})
+
+document.getElementById('stop').addEventListener('click', function(){
+    clearInterval(autoPlay)
+})
 
